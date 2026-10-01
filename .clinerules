@@ -145,3 +145,11 @@ After inspection, create these files in `docs/research/`:
 3. `LAYOUT_ARCHITECTURE.md` — Page layouts, grid system, responsive behavior
 4. `INTERACTION_PATTERNS.md` — Animations, transitions, hover states
 5. `TECH_STACK_ANALYSIS.md` — What the site uses and our chosen equivalents
+
+
+## ECC (Everything Claude Code) — curated install
+A trimmed subset of [affaan-m/ECC](https://github.com/affaan-m/ECC) lives in `.claude/` (see `.claude/ECC.md` for the inventory). It is tuned to this repo:
+- **AGENTS.md wins on conflict.** ECC's reviewers and design skills have opinions (e.g. "avoid template-looking UI"). During clone/emulation work, pixel-perfect fidelity to the target overrides any ECC style or "make it better" advice.
+- **Agents** (`.claude/agents/`): use `react-reviewer` + `typescript-reviewer` on `.tsx` changes, `build-error-resolver` / `react-build-resolver` when `npm run check` fails, `planner` for multi-section builds, `a11y-architect` / `performance-optimizer` / `security-reviewer` before shipping.
+- **Rules** (`.claude/rules/ecc/`): TypeScript, React, and web rules, path-scoped so they load only when matching files are touched.
+- **Verification:** `verification-loop` maps to `npm run check` (no test suite yet).
